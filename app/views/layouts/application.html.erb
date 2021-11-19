@@ -10,9 +10,22 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
     <!-- Custom StyleSheet -->
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!-- Style Sheet -->
+    <link rel="stylesheet" href="https://creativelayers.net/themes/houzing-html/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://creativelayers.net/themes/houzing-html/css/style.css">
+    <!-- Responsive stylesheet -->
+    <link rel="stylesheet" href="https://creativelayers.net/themes/houzing-html/css/responsive.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <!-- Custom JavaScript -->
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- Temp Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   </head>
   <body>
     <!-- Notice -->
@@ -22,15 +35,36 @@
     <!-- Content -->
     <!-- NavBar -->
     <%= render 'layouts/etc/navbar/public' %>
+    <%= render "layouts/etc/modals/auth" %>
     <!-- Main -->
     <%= yield %>
     <!-- Footer -->
-    <%= render 'layouts/etc/footer/default' %>
+    <%= render 'layouts/etc/footer/public' %>
   
 
     <!-- Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <!-- Custom JavaScript -->
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist///creativelayers.net/themes/houzing-html/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
+<script src="//creativelayers.net/themes/houzing-html/js/jquery-3.6.0.js"></script>
+<script src="//creativelayers.net/themes/houzing-html/js/jquery-migrate-3.0.0.min.js"></script>
+<script src="//creativelayers.net/themes/houzing-html/js/popper.min.js"></script>
+<script src="//creativelayers.net/themes/houzing-html/js/bootstrap.min.js"></script>
+<script src="//creativelayers.net/themes/houzing-html/js/jquery.mmenu.all.js"></script>
+<script src="//creativelayers.net/themes/houzing-html/js/ace-responsive-menu.js"></script>
+<script src="//creativelayers.net/themes/houzing-html/js/bootstrap-select.min.js"></script>
+<script src="//creativelayers.net/themes/houzing-html/js/isotop.js"></script>
+<script src="//creativelayers.net/themes/houzing-html/js/snackbar.min.js"></script>
+<script src="//creativelayers.net/themes/houzing-html/js/simplebar.js"></script>
+<script src="//creativelayers.net/themes/houzing-html/js/parallax.js"></script>
+<script src="//creativelayers.net/themes/houzing-html/js/scrollto.js"></script>
+<script src="//creativelayers.net/themes/houzing-html/js/jquery-scrolltofixed-min.js"></script>
+<script src="//creativelayers.net/themes/houzing-html/js/jquery.counterup.js"></script>
+<script src="//creativelayers.net/themes/houzing-html/js/wow.min.js"></script>
+<script src="//creativelayers.net/themes/houzing-html/js/progressbar.js"></script>
+<script src="//creativelayers.net/themes/houzing-html/js/slider.js"></script>
+<script src="//creativelayers.net/themes/houzing-html/js/timepicker.js"></script>
+<script src="//creativelayers.net/themes/houzing-html/js/pricing-slider.js"></script>
+<script src="//creativelayers.net/themes/houzing-html/js/wow.min.js"></script> 
+<!-- Custom script for all pages --> 
+<script src="//creativelayers.net/themes/houzing-html/js/script.js"></script>    
   </body>
 </html>
