@@ -1,4 +1,7 @@
-
+<div class="property-main-image" style="background-image: url('<%= property_photo_url(@property) %>')">
+  <div class="property-image-overlay">
+  </div>
+</div>
 <div class="container mt-5">
   <div class="row">
     <div class="col-8">
@@ -27,6 +30,9 @@
         <strong>Bathrooms:</strong>
         <%= @property.bathrooms %>
       </p>
+    </div>
+    <div class="col-4">
+      <%= render '/properties/etc/agent_details' %>
     </div>
   </div>
 </div>

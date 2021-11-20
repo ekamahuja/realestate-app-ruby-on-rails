@@ -4,9 +4,8 @@ module PropertiesHelper
         image_tag photo, class: "bd-placeholder-img card-img-top", width: "100%", height: "225"
     end
 
-    def property_photo(property)
-        photo = property.photo.attached? ? property.photo : "placeholder.jpg"
-        image_tag photo, class: "bd-placeholder-img card-img-top", width: "100%", height: "225"
+    def property_photo_url(property)
+        property.photo.present? ? polymorphic_url(property.photo) : asset_url("placeholder.jpg")
     end
 
     def property_bathroom(property)
@@ -16,6 +15,5 @@ module PropertiesHelper
         else 
             return bathrooms
         end
-
     end
 end

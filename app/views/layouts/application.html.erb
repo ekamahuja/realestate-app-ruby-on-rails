@@ -27,9 +27,7 @@
     <!-- NavBar -->
     <% if @enable_sidebar.nil? %>
       <%= render 'layouts/etc/navbar/public' %>
-      <div class="container">
         <%= yield %>
-      </div>
     <% else %>
     <!-- Main -->
       <%= render "layouts/etc/navbar/dashboard" %>

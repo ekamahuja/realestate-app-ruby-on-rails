@@ -6,4 +6,7 @@ class Property < ApplicationRecord
 
     # Gete Latest Properties
     scope :latest, -> { order created_at: :desc}
+
+    
+    
 end
