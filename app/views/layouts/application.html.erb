@@ -22,10 +22,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   </head>
-  <body id="<%= controller.controller_name%>" class="<%= controller.action_name %>">
+  <body id="<%= controller.controller_name %>" class="<%= controller.action_name %> <%= "enable-sidebar" if @enable_sidebar.present? %>">
     <!-- Content -->
     <!-- NavBar -->
-    <% if ['public', 'devise', 'sessions', 'registrations'].include?(controller.controller_name) %>
+    <% if @enable_sidebar.nil? %>
       <%= render 'layouts/etc/navbar/public' %>
       <div class="container">
         <%= yield %>
