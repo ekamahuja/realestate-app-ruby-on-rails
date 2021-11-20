@@ -7,7 +7,7 @@
       <div class="row">
         <div class="col-6">
           <p class="mb-0"><%= @property.address %></p>
-          <p class="h2"><%= @property.price > 0 ? number_to_currency(@property.price, :precision => 0) : "For Sale" %></h2>
+          <p class="h2"><i class="fas fa-money-check-alt pt-3"></i> From <%= @property.price > 0 ? display_price(@property.price) : "For Sale" %></h2>
         </div>
         <div class="col-6 text-center ">
         <div class="row mr-3 bg-light p-2 rounded">
@@ -27,39 +27,25 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row border-top border-bottom pt-3 pb-3 mb-4 mt-4">
         <div class="col-6">
-          Est. 
+          <%= link_to "Estimated Monthly Replayment: #{calculate_repayment(@property.price)}", "#", class: "text-decoration-none text-success fw-bold" %>
         </div>
         <div class="col-6">
+          <i class="fas fa-hand-holding-usd text-success"></i> <%= link_to "Can I afford this property?", "#", class:"text-decoration-none text-success fw-bold" %>
         </div>
       </div>
 
-        <div class="col">
-          <p>
-            <strong>Name:</strong>
-            <%= @property.name %>
-          </p>
+      <div class="row">
+       <div class="col">
+        <p class="h3 pb-2"><%= @property.name %></p>
+        <p class="h5">Project Overview</p>
+        <div id="description-wrapper" class="">
+          <%= simple_format @property.description %>
+        </div>
+        <button class="btn btn-outline-success mt-3" id="toggleDescriptionBtn">Read more</button>
 
-          <p>
-            <strong>Address:</strong>
-            <%= @property.address %>
-          </p>
-
-          <p>
-            <strong>Price:</strong>
-            <%= @property.price %>
-          </p>
-
-          <p>
-            <strong>Rooms:</strong>
-            <%= @property.rooms %>
-          </p>
-
-          <p>
-            <strong>Bathrooms:</strong>
-            <%= @property.bathrooms %>
-          </p>
+        <p class="mt-5">The esstimated monthly payments are based on a 30 year mortgage with 20% down and no interest rate %.*</p>
         </div>
       </div>     
     </div>

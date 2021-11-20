@@ -31,6 +31,11 @@
     <%= form.number_field :parking_spaces, class: "form-control" %>
   </div>
 
+  <div class="form-group mb-3">
+    <%= form.label :description %>
+    <%= form.text_area :description, class: "form-control" %>
+  </div>
+
   <div class="form-group">
     <%= form.label :photo %>
     <%= form.file_field :photo, accept: 'image/png, image/jpg, image/jpeg' %>
