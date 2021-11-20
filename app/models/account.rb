@@ -6,9 +6,7 @@ class Account < ApplicationRecord
 
   has_many :properties
 
-  def company_name
-    "test company"
-  end
+  has_one_attached :profile_picture
 
   def full_name
       "#{first_name} #{last_name}"

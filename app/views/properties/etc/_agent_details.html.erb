@@ -1,6 +1,9 @@
-<div class="">
+<div class="text-center border pt-5 pb-5 rounded ml-4">
+    <div class="mb-2">
+        <%= profile_picture(@agent) %>
+    </div>
     <h3 class="h4"><%= @agent.full_name %></h2>
     <p><%= @agent.company_name %></p>
     <button class="btn btn-info text-uppercase" style="color: white;">Call now</button>
-    <button class="btn btn-success text-uppercase">Email for more info</button>
+    <button class="btn btn-success text-uppercase">Email now</button>
 </div>
