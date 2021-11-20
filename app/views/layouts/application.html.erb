@@ -25,13 +25,31 @@
   <body>
     <!-- Content -->
     <!-- NavBar -->
-    <%= render 'layouts/etc/navbar/sidebar' %>
-    <!-- Notice -->
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% if ['public', 'devise', 'sessions', 'registrations'].include?(controller.controller_name) %>
+      <%= render 'layouts/etc/navbar/public' %>
+      <%= yield %>
+    <% else %>
+    <!-- Content -->
+      <%= render "layouts/etc/navbar/dashboard" %>
+      <div class="container-fluid">
+        <div class="row">
+          <%= render 'layouts/etc/navbar/sidebar' %>
+          <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <%= yield %>
+          </main>
+        </div>
+      </div>
+      
+    <% end %>
+    
     <!-- Main -->
     <div class="container">
-      <%= yield %>
+      <!-- Notice -->
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      
+      
+
     </div>
     <!-- Footer -->
     <%= render 'layouts/etc/footer/default' %>

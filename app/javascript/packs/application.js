@@ -42,6 +42,7 @@ require("channels")
 // require("./theme/tagsinput")
 // require("./theme/timepicker")
 // require("./theme/wow.min")
+// require('./sidebar')
 
 
 
