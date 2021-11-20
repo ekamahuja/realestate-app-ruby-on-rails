@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_20_111542) do
+ActiveRecord::Schema.define(version: 2021_11_20_132429) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 2021_11_20_111542) do
     t.string "last_name", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "type"
     t.string "url"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -38,6 +37,7 @@ ActiveRecord::Schema.define(version: 2021_11_20_111542) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "profile_picture"
     t.string "company_name"
+    t.string "role", default: "buyer"
     t.index ["email"], name: "index_accounts_on_email", unique: true
     t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
   end
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 2021_11_20_111542) do
     t.integer "parking_spaces", default: 0
     t.text "description"
     t.boolean "for_sale", default: true
+    t.datetime "avaliable_date"
     t.index ["account_id"], name: "index_properties_on_account_id"
   end
 
