@@ -36,6 +36,11 @@
     <%= form.select :for_sale, options_for_select({"Yes" => true, "No" => "false"}, @property.for_sale), class: "form-control" %>
   </div>
 
+  <div class="form-group">
+    <%= form.label :avaliable_date %>
+    <%= form.date_field :avaliable_date, class: "form-control" %>
+  </div>
+
   <div class="form-group mb-3">
     <%= form.label :description %>
     <%= form.text_area :description, class: "form-control" %>
