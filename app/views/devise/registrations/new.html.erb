@@ -18,6 +18,11 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
+  <div class="form-group">
+    <%= f.label :role %>
+    <%= f.select :role, options_for_select({"Buyer" => "buyer", "Realtor" => "seller"}, @account.role), class: "form-control" %>
+  </div>
+
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
