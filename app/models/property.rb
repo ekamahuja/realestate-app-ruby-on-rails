@@ -5,7 +5,7 @@ class Property < ApplicationRecord
     has_one_attached :photo
 
     # Gete Latest Properties
-    scope :latest, -> { order created_at: :desc}
+    scope :latest, -> { order created_at: :desc }
 
     
     

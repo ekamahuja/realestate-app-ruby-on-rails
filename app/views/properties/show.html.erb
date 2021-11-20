@@ -1,35 +1,67 @@
 <div class="property-main-image" style="background-image: url('<%= property_photo_url(@property) %>')">
-  <div class="property-image-overlay">
-  </div>
+  <div class="property-image-overlay"></div>
 </div>
 <div class="container mt-5">
   <div class="row">
     <div class="col-8">
+      <div class="row">
+        <div class="col-6">
+          <p class="mb-0"><%= @property.address %></p>
+          <p class="h2"><%= @property.price > 0 ? number_to_currency(@property.price, :precision => 0) : "For Sale" %></h2>
+        </div>
+        <div class="col-6 text-center ">
+        <div class="row mr-3 bg-light p-2 rounded">
+            <div class="col-4">
+              <p class ="m-0 fw-bold">Bedrooms</p>
+              <span class="lead"><%= @property.rooms %></span>
+            </div>
+            <div class="col-4">
+              <p class ="m-0 fw-bold">Bathrooms</p>
+              <span class="lead"><%= @property.bathrooms %></span>
+            </div>
+            <div class="col-4">
+              <p class ="m-0 fw-bold">Parking</p>
+              <span class="lead"><%= @property.parking_spaces %></span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <p>
-        <strong>Name:</strong>
-        <%= @property.name %>
-      </p>
+      <div class="row">
+        <div class="col-6">
+          Est. 
+        </div>
+        <div class="col-6">
+        </div>
+      </div>
 
-      <p>
-        <strong>Address:</strong>
-        <%= @property.address %>
-      </p>
+        <div class="col">
+          <p>
+            <strong>Name:</strong>
+            <%= @property.name %>
+          </p>
 
-      <p>
-        <strong>Price:</strong>
-        <%= @property.price %>
-      </p>
+          <p>
+            <strong>Address:</strong>
+            <%= @property.address %>
+          </p>
 
-      <p>
-        <strong>Rooms:</strong>
-        <%= @property.rooms %>
-      </p>
+          <p>
+            <strong>Price:</strong>
+            <%= @property.price %>
+          </p>
 
-      <p>
-        <strong>Bathrooms:</strong>
-        <%= @property.bathrooms %>
-      </p>
+          <p>
+            <strong>Rooms:</strong>
+            <%= @property.rooms %>
+          </p>
+
+          <p>
+            <strong>Bathrooms:</strong>
+            <%= @property.bathrooms %>
+          </p>
+        </div>
+      </div>     
     </div>
     <div class="col-4">
       <%= render '/properties/etc/agent_details' %>

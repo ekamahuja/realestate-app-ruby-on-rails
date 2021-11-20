@@ -8,12 +8,5 @@ module PropertiesHelper
         property.photo.present? ? polymorphic_url(property.photo) : asset_url("placeholder.jpg")
     end
 
-    def property_bathroom(property)
-    bathrooms = property.rooms - property.bathrooms
-        if bathrooms < 0
-            return bathrooms * -1;
-        else 
-            return bathrooms
-        end
-    end
+    
 end
