@@ -22,14 +22,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   </head>
-  <body>
+  <body id="<%= controller.controller_name%>" class="<%= controller.action_name %>">
     <!-- Content -->
     <!-- NavBar -->
     <% if ['public', 'devise', 'sessions', 'registrations'].include?(controller.controller_name) %>
       <%= render 'layouts/etc/navbar/public' %>
-      <%= yield %>
+      <div class="container">
+        <%= yield %>
+      </div>
     <% else %>
-    <!-- Content -->
+    <!-- Main -->
       <%= render "layouts/etc/navbar/dashboard" %>
       <div class="container-fluid">
         <div class="row">
@@ -42,15 +44,9 @@
       
     <% end %>
     
-    <!-- Main -->
-    <div class="container">
       <!-- Notice -->
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-      
-      
+      <p id="notifications"><%= notice %></p>
 
-    </div>
     <!-- Footer -->
     <%= render 'layouts/etc/footer/default' %>
     <!-- Bootstrap Bundle with Popper -->
