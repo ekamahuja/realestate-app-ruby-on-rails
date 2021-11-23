@@ -1,11 +1,11 @@
 module PropertiesHelper
     def property_thumbnail(property)
-        photo = property.photo.attached? ? property.photo : "placeholder.jpg"
+        photo = property.photo.attached? ? property.photo : "placeholder_profile.png"
         image_tag photo, class: "bd-placeholder-img card-img-top", width: "100%", height: "225"
     end
 
     def property_photo_url(property)
-        property.photo.present? ? polymorphic_url(property.photo) : asset_url("placeholder.jpg")
+        property.photo.present? ? polymorphic_url(property.photo) : asset_url("placeholder_profile.png")
     end
 
     def display_price(price)
