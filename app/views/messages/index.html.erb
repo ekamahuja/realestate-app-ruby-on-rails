@@ -7,26 +7,35 @@
 
 
 
-
-<div class="container mt-5">
+<div class="row m-auto">
+<div class="col-lg-10 m-auto mb-4">
+<div class="message-listing">
    <% @messages.each do |message| %>
     <% if message.body %>
     <% account = Account.find(message.account_id) %>
       <% if current_account.id == message.account_id %>
-        <div class="message text-end">
-          <div class="user-info">
-            
-            <p><%= account.full_name %><%= message.message_time %></p>
+        <div class="media support">
+          <div class="avatar">
+            <%= image_tag profile_picture(account), class: "avatar rounded-circle"  %>
           </div>
-          <p><%= message.body %></p>
+          <div class="media-content mb-4">
+            <div class="comment bg-primary">
+              <%= message.body %>
+            </div>
+            <small><%= account.full_name %> | <%= message.message_time %></small>
+          </div>
         </div>
       <% else %>
-        <div class="message">
-          <div class="user-info">
-            <%= profile_picture(account, 50) %>
-            <p><%= account.full_name %><%= message.message_time %></p>
+        <div class="media">
+          <div class="avatar">
+            <%= image_tag profile_picture(account), class: "avatar rounded-circle"  %>
           </div>
-          <p><%= message.body %></p>
+          <div class ="media-content mb-4">
+            <div class="comment bg-danger">
+                <p><%= message.body %></p>
+            </div>
+            <small><%= account.full_name %> | <%= message.message_time %></small>
+          </div>
         </div>
       <% end %>
     <% end %>
@@ -38,3 +47,7 @@
   <% end %>
 </div>
 
+
+
+</div>
+</div>

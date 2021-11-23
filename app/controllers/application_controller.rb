@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
     before_action :configure_premitted_parameters, if: :devise_controller?
     before_action :set_sidebar, only: [:update, :edit]
 
+
     protected
     def configure_premitted_parameters
         devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :url, :profile_picture, :role, :company_name])

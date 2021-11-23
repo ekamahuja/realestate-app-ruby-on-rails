@@ -1,8 +1,7 @@
 module ApplicationHelper
 
-    def profile_picture(account, width = 100)
-        profile_picture = account.profile_picture.attached? ? account.profile_picture : asset_path("placeholder_profile.png")
-        image_tag profile_picture, class: "profile_picture rounded-circle", width: width
+    def profile_picture(account)
+        account.profile_picture.present? ? polymorphic_url(account.profile_picture) : asset_url("placeholder_profile.png")
     end
 
     def is_seller
