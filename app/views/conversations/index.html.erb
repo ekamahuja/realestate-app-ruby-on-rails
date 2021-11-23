@@ -19,7 +19,7 @@
        <% else %>
          <% recipient = Account.find(conversation.sender_id) %>
        <% end %>
-       <h3><%= link_to recipient.email, conversation_messages_path(conversation)%></h3>
+       <h3><%= link_to recipient.full_name.capitalize, conversation_messages_path(conversation)%></h3>
       <% end %>
      <% end %>
      </div>

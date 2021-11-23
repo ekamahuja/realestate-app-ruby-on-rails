@@ -1,9 +1,13 @@
 <div class="text-center border pt-5 pb-5 rounded ml-lg-4">
     <div class="mb-2">
-        <%= profile_picture(@agent) %>
+        <%= image_tag profile_picture(@agent), :class => "rounded-circle", width: 100 %>
     </div>
     <h3 class="h4"><%= @agent.full_name %></h2>
     <p><%= @agent.company_name %></p>
     <button class="btn btn-info text-uppercase" style="color: white;">Call now</button>
-    <button class="btn btn-success text-uppercase">Email now</button>
+    <% if !account_signed_in? %>
+        <%= link_to "Please login to DM", new_account_session_path, class: "btn btn-success text-uppercase" %>
+    <% else %>
+        <%= link_to "Message now" , conversations_path(sender_id: current_account.id, recipient_id: @agent.id), method: "post", class:"btn btn-success text-uppercase" %>
+    <% end %>
 </div>

@@ -1,6 +1,6 @@
 class PropertiesController < ApplicationController
   before_action :set_property, only: %i[ show edit update destroy ]
-  before_action :authenticate_account!, only: [:new, :create, :destroy, :update, :edit]
+  before_action :authenticate_account!, except: [:show]
   before_action :set_sidebar, except: [:show]
 
   # GET /properties or /properties.json
