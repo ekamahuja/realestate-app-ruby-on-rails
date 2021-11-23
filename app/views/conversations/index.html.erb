@@ -26,18 +26,5 @@
      </div>
     </div>
    </div>
-  <div id="new">
-    <div class="panel-body">
-     <h1 class="panel-heading">All Accounts:</h1>
-       <% @accounts.each do |account| %>
-        <% if account.id != current_account.id %>
-         <div class="item"><h3>
-      <%= link_to account.email,
-       conversations_path(sender_id: current_account.id, recipient_id: account.id), method: "post"%>
-     </h3></div>
-      <% end %>
-     <% end %>
-    </div>
-  </div>
 </div>
 </div>

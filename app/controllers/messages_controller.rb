@@ -1,4 +1,6 @@
 class MessagesController < ApplicationController
+  before_action :set_sidebar
+
     before_action do
       @conversation = Conversation.find(params[:conversation_id])
     end
@@ -22,5 +24,9 @@ class MessagesController < ApplicationController
     private
     def message_params
       params.require(:message).permit(:body, :account_id)
+    end
+
+    def set_sidebar
+      @enable_sidebar = true
     end
   end

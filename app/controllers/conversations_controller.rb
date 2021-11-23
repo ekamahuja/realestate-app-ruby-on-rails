@@ -1,5 +1,6 @@
 class ConversationsController < ApplicationController
     before_action :authenticate_account!
+    before_action :set_sidebar
   
     def index
       @accounts = Account.all
@@ -18,5 +19,9 @@ class ConversationsController < ApplicationController
     private
     def conversation_params
       params.permit(:sender_id, :recipient_id)
+    end
+
+    def set_sidebar
+      @enable_sidebar = true
     end
   end
