@@ -1,17 +1,5 @@
-<style>
-.glyphicon {
-  float: right;
-  margin-top: 2px;
-  margin-right: -6px;
-}
-</style>
 
-<div class="panel panel-default">
-<div class="col-lg-6">
-  <div id="mail">
-    <h1 class="panel-heading">All Conversations:</h1>
-    <div class="panel-body">
-     <div class="item">
+      <h1 class="h3">Continue your conversations</h1>
       <% @conversations.each do |conversation| %>
       <% if conversation.sender_id == current_account.id || conversation.recipient_id == current_account.id %>
        <% if conversation.sender_id == current_account.id %>
@@ -19,11 +7,9 @@
        <% else %>
          <% recipient = Account.find(conversation.sender_id) %>
        <% end %>
-       <h3><%= link_to recipient.full_name.capitalize, conversation_messages_path(conversation)%></h3>
+       <div class="border border-dark p-4 rounded mt-5">
+        <%= image_tag profile_picture(recipient), width: 150 %>
+        <%= link_to recipient.full_name.capitalize, conversation_messages_path(conversation), class: "h4 ml-2 text-decoration-none text-primary"%>
+       </div>
       <% end %>
      <% end %>
-     </div>
-    </div>
-   </div>
-</div>
-</div>
