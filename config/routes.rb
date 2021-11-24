@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :accounts
   root "public#main"
   get "admin/accounts", to: "admin#accounts", as: :accounts
-  get 'profile/:id', to: 'profile#view', as: :profile
+  get 'profile/:id', to: 'profile#index', as: :profile
   post 'agent/email', to: "properties#email_agent"
   
 
