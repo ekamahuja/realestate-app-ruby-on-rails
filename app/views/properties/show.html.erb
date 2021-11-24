@@ -57,8 +57,9 @@
           <%= simple_format @property.description %>
         </div>
         <button class="btn btn-outline-success mt-3" id="toggleDescriptionBtn">Read more</button>
-
-        <p class="mt-5">The esstimated monthly payments are based on a 30 year mortgage with 20% down and no interest rate %.*</p>
+        <% if @property.for_sale? %>
+          <p class="mt-5">The esstimated monthly payments are based on a 30 year mortgage with 20% down and no interest rate %.*</p>
+        <% end %>
         </div>
       </div>     
     </div>
@@ -86,3 +87,6 @@
     </div>
   </div>
 </section>
+
+
+<%= render "properties/etc/email_agent" %>

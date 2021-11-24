@@ -45,7 +45,7 @@ require("channels")
 // require('./sidebar')
 
 
-require('./includes/properties')
+require("../packs/properties")
 
 
 

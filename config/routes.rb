@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :accounts
   root "public#main"
   get 'profile/:id', to: 'profile#view', as: :profile
+  post 'agent/email', to: "properties#email_agent"
   
 
   resources :conversations do

@@ -1,6 +1,6 @@
 class PropertiesController < ApplicationController
   before_action :set_property, only: %i[ show edit update destroy ]
-  before_action :authenticate_account!, except: [:show]
+  before_action :authenticate_account!, except: [:show, :email_agent]
   before_action :set_sidebar, except: [:show]
 
   # GET /properties or /properties.json
@@ -59,6 +59,21 @@ class PropertiesController < ApplicationController
       format.html { redirect_to properties_url, notice: "Property was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def email_agent
+    agent_id = params[:agent_id]
+    name = params[:sender_name]
+    email = params[:sender_email]
+    message = params[:sender_message]
+
+    ContactMailer.email_agent(agent_id, name, email, message)
+
+    # response back when method is called
+    respond_to do |format|
+      format.json { head :no_content }
+    end
+
   end
 
   private
