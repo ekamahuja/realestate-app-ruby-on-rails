@@ -48,22 +48,11 @@
           <%= simple_format @account.description %>
         </div>
         <button class="btn btn-outline-success mt-3" id="toggleDescriptionBtn">Read more</button>
-        <% if @property.for_sale? %>
-          <p class="mt-5">The esstimated monthly payments are based on a 30 year mortgage with 20% down and no interest rate %.*</p>
-        <% end %>
+
         </div>
       </div>     
     </div>
-    <div class="col-md-4">
-      <%= render '/properties/etc/agent_details', agent: @account %>
-      <iframe
-        class="ml-lg-4 mt-3"
-        width="320"
-        height="240"
-        style="border:0"
-        loading="lazy"
-        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCfIqZFuB7d1yDzBmghQ5MeDis-uPvF8HY&q=<%= @property.address.to_param %>">
-    </iframe>
+
     </div>
   </div>
 </div>
@@ -72,7 +61,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <p class="h4 mb-4">Other properties from <%= @agent.company_name %></p>
+        <p class="h4 mb-4">Other properties from <%= @account.company_name %></p>
       </div>
       <%= render "properties/etc/list_properties", properties: @properties %>
     </div>
@@ -80,4 +69,4 @@
 </section>
 
 
-<%= render "properties/etc/email_agent" %>
+<%= render "properties/etc/email_agent", agent: @account %>

@@ -4,12 +4,12 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New message for <%= @agent.full_name %></h5>
+        <h5 class="modal-title" id="exampleModalLabel">New message for <%= agent.full_name %></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body" id="contact-modal">
         <%= form_tag agent_email_path, id: "email-agent" do %>
-           <%= hidden_field_tag :agent_id, @agent.id%>
+           <%= hidden_field_tag :agent_id, agent.id%>
           <div class="mb-3">
             <label for="sender-name" class="col-form-label">Your Name:</label>
             <%= text_field :sender_name, nil, class:"form-control", id:"sender-name" %>
