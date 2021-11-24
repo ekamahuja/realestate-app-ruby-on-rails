@@ -32,7 +32,10 @@ $(function() {
 
             },
             success: function(data){
-                console.log(data);
+                $("#contact-modal form").remove();
+                $("#send-email-to-agent").remove();
+                $("#contact-modal").html("<p>Your message has been successfully sent!</p>");
+    
             }
         });
     });
