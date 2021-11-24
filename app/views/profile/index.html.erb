@@ -32,18 +32,10 @@
         </div>
       </div>
 
-      <div class="row border-top border-bottom pt-3 pb-3 mb-4 mt-4">
-        <div class="col-6">
-            Properties
-        </div>
-        <div class="col-6">
-          <i class="fas fa-hand-holding-usd text-success"></i> <%= link_to "Can I afford this property?", "#", class:"text-decoration-none text-success fw-bold" %>
-        </div>
-      </div>
 
-      <div class="row">
+      <div class="row border-top mt-4 pt-4">
        <div class="col">
-        <p class="h5">Project Overview</p>
+        <p class="h5">Description</p>
         <div id="description-wrapper" class="">
           <%= simple_format @account.description %>
         </div>
@@ -63,7 +55,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <p class="h4 mb-4">Other properties from <%= @account.company_name %></p>
+        <p class="h4 mb-4">All listings from <%= @account.first_name %></p>
       </div>
       <%= render "properties/etc/list_properties", properties: @properties.limit(3) %>
     </div>
