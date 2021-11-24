@@ -67,7 +67,7 @@ class PropertiesController < ApplicationController
     email = params[:sender_email]
     message = params[:sender_message]
 
-    ContactMailer.email_agent(agent_id, name, email, message)
+    ContactMailer.email_agent(agent_id, name, email, message).deliver_now
 
     # response back when method is called
     respond_to do |format|
