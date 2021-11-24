@@ -28,6 +28,11 @@
     <%= f.text_field :company_name, autofocus: true, autocomplete: "company" %>
   </div>
 
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description, autofocus: true, autocomplete: "description" %>
+  </div>
+
   <div class="form-group">
     <%= f.label :role %>
     <%= f.select :role, options_for_select({"Buyer" => "buyer", "Realtor" => "seller"}, @account.role), class: "form-control" %>
