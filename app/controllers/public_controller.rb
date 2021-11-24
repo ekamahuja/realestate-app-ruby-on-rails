@@ -5,5 +5,6 @@ class PublicController < ApplicationController
       redirect_to path, flash: {success: "Successfully Signed In!"} and return
     end
     @properties = Property.latest
+    @posts = Blog.latest
   end
 end

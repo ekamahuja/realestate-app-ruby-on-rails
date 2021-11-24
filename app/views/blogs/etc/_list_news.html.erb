@@ -1,21 +1,4 @@
-<main>
-
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Real Estate & Property Market News</h1>
-        <p class="lead text-muted">The latest real estate and property market news from our team of industry leading professionals</p>
-      </div>
-    </div>
-  </section>
-
-    <div class="album py-5 bg-light">
-        <div class="container">
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                <% if @posts.empty? %>
-                    <p class="h4">No posts to display.</p>
-                <% else %>
-                    <% @posts.each do |post| %>
+<% posts.each do |post| %>
                         <div class="col">
                             <div class="card shadow-sm">
                                 <%= link_to blog_path(post) do %>
@@ -35,10 +18,3 @@
                             </div>
                             </div>
                     <% end %>
-                <% end %>
-            </div>
-        </div>
-    </div>
-
-
-</main>

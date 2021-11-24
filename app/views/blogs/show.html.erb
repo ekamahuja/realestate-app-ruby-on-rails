@@ -1,34 +1,23 @@
-<p id="notice"><%= notice %></p>
+<main class="container mt-3">
+  <div class="row g-5">
+    <div class="col-md-10">
 
-<p>
-  <strong>Title:</strong>
-  <%= @blog.title %>
-</p>
+      <article class="blog-post mt-5">
+        <h2 class="blog-post-title"><%= @blog.title %></h2>
+        <p class="blog-post-meta">Posted <%= time_ago_in_words @blog.created_at %> ago</p>
+        <p><%= @blog.summary %></p>
+        <hr>
+        <%= image_tag @blog.image, class: "mt-4 mb-4", style: "max-height: 50vh;" %>
+        <p><%= simple_format @blog.body %></p>
+      </article>
+      <%= link_to "Check out other posts" , news_path, class: "btn btn-primary mb-5" %>
+      <br />
+      <br />
+      <br />
+      <br />
+    </div>
+  </div>
+</main>
 
-<p>
-  <strong>Url:</strong>
-  <%= @blog.url %>
-</p>
 
-<p>
-  <strong>Summary:</strong>
-  <%= @blog.summary %>
-</p>
 
-<p>
-  <strong>Body:</strong>
-  <%= @blog.body %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @blog.image %>
-</p>
-
-<p>
-  <strong>Active:</strong>
-  <%= @blog.active %>
-</p>
-
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
