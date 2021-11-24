@@ -70,6 +70,15 @@
     <% end %>
   </div>
 
+    <div class="form-group">
+    <%= f.label :profile_cover_image %>
+    <%= f.file_field :profile_cover_image, accept: 'image/png, image/jpg, image/jpeg' %>
+
+    <% if @account.profile_cover_image.present? %>
+      <%= image_tag @account.profile_cover_image, :class => "mt-4 w-25" %>
+    <% end %>
+  </div>
+
 
 
   <div class="actions">
