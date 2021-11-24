@@ -38,6 +38,9 @@
           </li>
         <% else %>
           <li class="nav-item">
+            <%= link_to "News", news_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
             <%= link_to "Sign In", new_account_session_path, class: "nav-link" %>
           </li>
           <li class="nav-item">

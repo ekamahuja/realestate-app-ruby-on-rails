@@ -1,10 +1,15 @@
 class BlogsController < ApplicationController
-  before_action :authenticate_account!, only: [:new, :create]
+  before_action :authenticate_account!, except: [:show, :news]
   before_action :set_blog, only: %i[ show edit update destroy ]
+  before_action :can_access?, except: [:show, :news]
 
   # GET /blogs or /blogs.json
   def index
     @blogs = Blog.all
+  end
+
+  def news
+    @posts = Blog.active
   end
 
   # GET /blogs/1 or /blogs/1.json

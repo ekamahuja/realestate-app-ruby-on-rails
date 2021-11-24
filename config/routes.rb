@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'profile/:id', to: 'profile#index', as: :profile
   post 'agent/email', to: "properties#email_agent"
   
-
+  get 'news', to: "blogs#news"
   resources :conversations do
     resources :messages
   end

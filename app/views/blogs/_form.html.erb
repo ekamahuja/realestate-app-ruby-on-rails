@@ -11,34 +11,38 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :url %>
-    <%= form.text_field :url %>
+    <%= form.text_field :url, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :summary %>
-    <%= form.text_field :summary %>
+    <%= form.text_field :summary, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :body %>
-    <%= form.text_area :body %>
+    <%= form.text_area :body, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :image %>
-    <%= form.text_field :image %>
+    <%= form.file_field :image, accept: 'image/png, image/jpg, image/jpeg' %>
+
+    <% if @blog.image.present? %>
+      <%= image_tag @blog.image, :class => "mt-4" %>
+    <% end %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :active %>
-    <%= form.check_box :active %>
+    <%= form.check_box :active, class: "form-control" %>
   </div>
 
   <div class="actions">
