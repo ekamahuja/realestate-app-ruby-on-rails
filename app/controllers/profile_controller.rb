@@ -7,7 +7,7 @@ class ProfileController < ApplicationController
 
     private
     def set_sidebar
-        @enable_sidebar = true
+        @enable_sidebar = true if account_signed_in?
     end
 
   end

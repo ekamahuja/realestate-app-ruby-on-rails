@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :properties
   devise_for :accounts
   root "public#main"
+  get "admin/accounts", to: "admin#accounts", as: :accounts
   get 'profile/:id', to: 'profile#view', as: :profile
   post 'agent/email', to: "properties#email_agent"
   

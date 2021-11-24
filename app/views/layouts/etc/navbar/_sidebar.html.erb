@@ -1,32 +1,7 @@
 <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
       <div class="position-sticky pt-3">
-        <ul class="nav flex-column">
-
-          <li class="nav-item">
-            <%= link_to dashboard_path, class: "nav-link" do %>
-              <span data-feather="home"></span>
-              Dashboard
-            <% end %>
-          </li>
-            <li class="nav-item">
-              <%= link_to new_property_path, class: "nav-link" do %>
-                <span data-feather="file"></span>
-                Create New Listing
-              <% end %>
-            </li>
-            <li class="nav-item">
-              <%= link_to properties_path, class: "nav-link" do %>
-                <span data-feather="shopping-cart"></span>
-                View My Listings
-              <% end %>
-            </li>
-
-          <li class="nav-item">
-              <%= link_to conversations_path, class: "nav-link" do %>
-                <span data-feather="shopping-cart"></span>
-                Conversations
-              <% end %>
-            </li>
+        <ul class="nav flex-column">  
+          <%= render "layouts/etc/navbar/type/#{current_account.admin? ? "admin" : "user"}" %>
         </ul>
 
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">

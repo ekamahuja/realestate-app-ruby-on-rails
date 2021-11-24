@@ -1,0 +1,25 @@
+          <li class="nav-item">
+            <%= link_to dashboard_path, class: "nav-link" do %>
+              <span data-feather="home"></span>
+              Dashboard
+            <% end %>
+          </li>
+            <li class="nav-item">
+              <%= link_to new_property_path, class: "nav-link" do %>
+                <span data-feather="file"></span>
+                Create New Listing
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to properties_path, class: "nav-link" do %>
+                <span data-feather="shopping-cart"></span>
+                View My Listings
+              <% end %>
+            </li>
+
+          <li class="nav-item">
+              <%= link_to conversations_path, class: "nav-link" do %>
+                <span data-feather="shopping-cart"></span>
+                Conversations
+              <% end %>
+            </li>

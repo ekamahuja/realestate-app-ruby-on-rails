@@ -16,7 +16,7 @@
           </div>
           <div class="mb-3">
             <label for="sender-email" class="col-form-label">Your Email:</label>
-            <%= email_field :sender_email, nil, class:"form-control", id:"sender-email" %>
+            <%= email_field :sender_email, nil, class:"form-control", id:"sender-email", :required => true %>
           </div>
           <div class="mb-3">
             <label for="sender-message" class="col-form-label">Message:</label>
