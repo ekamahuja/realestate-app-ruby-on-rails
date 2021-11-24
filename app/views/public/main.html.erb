@@ -1,13 +1,13 @@
-<main>
+<main id="home-banner">
 
   <section class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="fw-light">Search Australia's home of property</h1>
-        <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+        <p class="lead text-muted">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
         <p>
-          <a href="#" class="btn btn-primary my-2">Main call to action</a>
-          <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+          <a href="#" class="btn btn-success my-2">View Latest Properties</a>
+          <a href="#" class="btn btn-primary my-2">View Latest News</a>
         </p>
       </div>
     </div>
@@ -15,16 +15,18 @@
 
   <div class="album py-5 bg-light">
     <div class="container">
+          <h3 class="mb-3">Dream Homes</h3>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            <%= render "properties/etc/list_properties", properties: @properties.latest.limit(3) %> 
+            <%= render "properties/etc/list_properties", properties: @properties.limit(3) %> 
         </div>
     </div>
   </div>
 
   <div class="album py-5 bg-light">
     <div class="container">
+        <h3 class="mb-3">Latest News</h3>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            <%= render "blogs/etc/list_news", posts: @posts %> 
+            <%= render "blogs/etc/list_news", posts: @posts.limit(6) %> 
         </div>
     </div>
   </div>
