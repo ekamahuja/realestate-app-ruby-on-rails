@@ -8,7 +8,7 @@
         <div class="col-lg-6">
         <p class="mb-0 fw-bold"><%= @account.full_name %></p>
           <p class="mb-2"><%= @account.company_name %></p>
-
+            <p class="text-muted">Registed for <%=time_ago_in_words @account.created_at %></p>
         </div>
         <div class="col-lg-6 text-center ">
         <div class="row mr-lg-3 mt-sm-3 bg-light p-2 rounded">
