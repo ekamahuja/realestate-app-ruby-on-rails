@@ -1,10 +1,14 @@
-<div class="text-center border pt-5 pb-5 rounded ml-lg-4">
+<div class="text-center border p-5 pb-5 rounded ml-lg-4">
     <div class="mb-2">
         <%= image_tag profile_picture(@agent), :class => "rounded-circle", width: 100 %>
     </div>
     <h3 class="h4"><%= @agent.full_name %></h2>
     <p><%= @agent.company_name %></p>
-    <button class="btn btn-info text-uppercase" style="color: white;">Call now</button>
+
+    <div class="d-grid gap-2 mb-4 mr-2">
+        <button class="btn btn-long btn-info text-uppercase" style="color: white;"><i class="fas fa-phone-square"></i> Call now</button>
+    </div>
+    <%= link_to "View profile", profile_path(@agent.id), class: "btn btn-secondary text-uppercase" %>
     <% if !account_signed_in? %>
         <%= link_to "Please login to DM", new_account_session_path, class: "btn btn-success text-uppercase" %>
     <% else %>
