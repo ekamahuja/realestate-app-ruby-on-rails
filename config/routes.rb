@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :blogs
   get 'dashboard', to: 'dashboard#index'
   resources :properties
   devise_for :accounts
