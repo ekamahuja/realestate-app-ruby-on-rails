@@ -13,4 +13,11 @@ class ApplicationController < ActionController::Base
     def set_sidebar
         @enable_sidebar = true
     end
+
+    def can_access?
+        @enable_sidebar = true
+        unless current_account.admin?
+            redirect_to root_path, flash: { danger: "You do not have admin privlages" }
+        end
+    end
 end
