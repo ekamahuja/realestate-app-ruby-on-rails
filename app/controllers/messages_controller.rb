@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  before_action :authenticate_account!
   before_action :set_sidebar
 
     before_action do
