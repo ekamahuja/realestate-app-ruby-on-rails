@@ -10,7 +10,7 @@ class BlogsController < ApplicationController
   end
 
   def news
-    @posts = Blog.active
+    @posts = Blog.active.latest
   end
 
   # GET /blogs/1 or /blogs/1.json
