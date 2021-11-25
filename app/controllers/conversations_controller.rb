@@ -1,5 +1,6 @@
 class ConversationsController < ApplicationController
-    before_action :authenticate_account!
+    before_action :authenticate_account!  
+    before_action :is_sender_recipitent?, only: [:create]
     before_action :set_sidebar
   
     def index
@@ -24,4 +25,11 @@ class ConversationsController < ApplicationController
     def set_sidebar
       @enable_sidebar = true
     end
+
+    def is_sender_recipitent?
+      if params[:sender_id] == params[:recipient_id]
+        redirect_to profile_path(current_account.id), alert: "You cannot message yourself." and return
+      end
+    end
+
   end
