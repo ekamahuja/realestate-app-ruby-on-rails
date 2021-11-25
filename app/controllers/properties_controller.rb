@@ -5,7 +5,7 @@ class PropertiesController < ApplicationController
 
   # GET /properties or /properties.json
   def index
-    @properties = Property.all
+    @properties = Property.where(account_id: current_account.id)
   end
 
   # GET /properties/1 or /properties/1.json
@@ -74,6 +74,13 @@ class PropertiesController < ApplicationController
       format.json { head :no_content }
     end
 
+  end
+
+  def correct_account
+    @correct_account = current_account.Property.find_by(account_id: params[:current_account.id])
+    unless @correct_account
+      redirect_to properties_path and return
+    end
   end
 
   private
