@@ -1,7 +1,7 @@
 class PropertiesController < ApplicationController
   before_action :set_property, only: %i[ show edit update destroy ]
   before_action :authenticate_account!, except: [:show, :email_agent]
-  before_action :correct_property, except: [:show, :email_agent]
+  before_action :account_owns_property?, only: [:edit, :update, :detroy]
   before_action :set_sidebar, except: [:show]
 
   # GET /properties or /properties.json
@@ -57,7 +57,7 @@ class PropertiesController < ApplicationController
   def destroy
     @property.destroy
     respond_to do |format|
-      format.html { redirect_to properties_url, notice: "Property was successfully destroyed." }
+      format.html { redirect_to properties_url, notice: "Property was successfully deleted." }
       format.json { head :no_content }
     end
   end
@@ -77,10 +77,6 @@ class PropertiesController < ApplicationController
 
   end
 
-  def correct_property
-    @users_property = Property.where(account_id: current_account.id)
-      redirect_to properties_path, flash: { danger: "This property does not belong to you" } if @users_property.nil? and return
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -95,5 +91,11 @@ class PropertiesController < ApplicationController
 
     def set_sidebar
         @enable_sidebar = true
+    end
+
+    def account_owns_property?
+      if @property.account_id != current_account.id 
+        redirect_to properties_path, alert: "The property does not belong to you." and return
+      end
     end
 end

@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
     def can_access?
         @enable_sidebar = true
         unless current_account.admin?
-            redirect_to root_path, flash: { danger: "You do not have admin privlages" } and return
+            redirect_to dashboard_path, alert: "You do not have admin privlages." and return
         end
     end
 end

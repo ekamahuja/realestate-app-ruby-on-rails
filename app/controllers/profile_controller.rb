@@ -15,5 +15,7 @@ class ProfileController < ApplicationController
         @enable_sidebar = true if account_signed_in?
     end
 
+
+
   end
   
