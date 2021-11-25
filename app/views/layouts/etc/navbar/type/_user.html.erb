@@ -1,25 +1,24 @@
-          <li class="nav-item">
-            <%= link_to dashboard_path, class: "nav-link" do %>
-              <span data-feather="home"></span>
-              Dashboard
-            <% end %>
-          </li>
-            <li class="nav-item">
-              <%= link_to new_property_path, class: "nav-link" do %>
-                <span data-feather="file"></span>
-                Create New Listing
-              <% end %>
-            </li>
-            <li class="nav-item">
-              <%= link_to properties_path, class: "nav-link" do %>
-                <span data-feather="shopping-cart"></span>
-                View My Listings
-              <% end %>
-            </li>
-
-          <li class="nav-item">
-              <%= link_to conversations_path, class: "nav-link" do %>
-                <span data-feather="shopping-cart"></span>
-                Conversations
-              <% end %>
-            </li>
+<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+  <span>User</span>
+  <a class="link-secondary" href="#">
+    <span data-feather="plus-circle"></span>
+  </a>
+</h6>
+<li class="nav-item">
+  <%= link_to properties_view_all_path, class: "nav-link" do %>
+    Listings
+  <% end %>
+</li>
+<li class="nav-item">
+  <%= link_to news_path, class: "nav-link" do %>
+    News
+  <% end %>
+</li>
+<% if Conversation.count > 0 %>
+<li class="nav-item">
+  <%= link_to conversations_path, class: "nav-link" do %>
+    Conversations
+  <% end %>
+</li>
+<% end %>
+            

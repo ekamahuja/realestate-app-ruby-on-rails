@@ -1,9 +1,16 @@
 <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
       <div class="position-sticky pt-3">
         <ul class="nav flex-column">  
-          <%= render "layouts/etc/navbar/type/#{current_account.admin? ? "admin" : "user"}" %>
-        </ul>
+          <% if current_account.admin? %>
+            <%= render "layouts/etc/navbar/type/admin" %>
+          <% end %>
+          <% if current_account.role == "seller" %>
+            <%= render "layouts/etc/navbar/type/seller" %>
+          <% end %>
 
+          <%= render "layouts/etc/navbar/type/user" %>
+          
+        </ul>
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
           <span>Settings</span>
           <a class="link-secondary" href="#" aria-label="Add a new report">
@@ -11,11 +18,13 @@
           </a>
         </h6>
         <ul class="nav flex-column mb-2">
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <%= link_to "My Profile", profile_path(current_account), class: "nav-link" %>
-            </a>
-          </li>
+          <% if current_account.role == "seller" %>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <%= link_to "My Profile", profile_path(current_account), class: "nav-link" %>
+              </a>
+            </li>
+          <% end %>
           <li class="nav-item">
             <%= link_to "Edit Profile", edit_account_registration_path, class: "nav-link" %>
           </li>
