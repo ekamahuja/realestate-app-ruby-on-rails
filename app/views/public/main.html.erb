@@ -6,8 +6,8 @@
         <h1 class="fw-light">Search Australia's home of property</h1>
         <p class="lead text-muted">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
         <p>
-          <a href="#" class="btn btn-success my-2">View Latest Properties</a>
-          <a href="#" class="btn btn-primary my-2">View Latest News</a>
+          <%= link_to "View Latest Properties", properties_view_all_path, class: "btn btn-success" %>
+          <%= link_to "View Latest News", news_path, class: "btn btn-primary my-2" %>
         </p>
       </div>
     </div>
