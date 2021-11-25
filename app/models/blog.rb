@@ -4,6 +4,6 @@ class Blog < ApplicationRecord
     has_one_attached :image
 
     scope :latest, -> { order created_at: :desc }
-    scope :active, -> { where active: false}
+    scope :active, -> { where active: truegit}
 
 end
