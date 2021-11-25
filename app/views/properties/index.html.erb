@@ -6,8 +6,10 @@
       <th>Name</th>
       <th>Address</th>
       <th>Price</th>
+      <th>For sale</th>
       <th>Rooms</th>
       <th>Bathrooms</th>
+      <th>Parking</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,9 +19,11 @@
       <tr>
         <td><%= property.name %></td>
         <td><%= property.address %></td>
-        <td><%= property.price %></td>
+        <td><%= display_price(property.price) %></td>
+        <td><%= property.for_sale %></td>
         <td><%= property.rooms %></td>
         <td><%= property.bathrooms %></td>
+        <td><%= property.parking_spaces %></td>
         <td><%= link_to 'View', property %></td>
         <td><%= link_to 'Edit', edit_property_path(property) %></td>
         <td><%= link_to 'Delete', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
