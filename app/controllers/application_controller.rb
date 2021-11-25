@@ -11,11 +11,10 @@ class ApplicationController < ActionController::Base
 
     private
     def set_sidebar
-        @enable_sidebar = true
+        @enable_sidebar = true if account_signed_in?
     end
 
     def can_access?
-        @enable_sidebar = true
         unless current_account.admin?
             redirect_to dashboard_path, alert: "You do not have admin privlages." and return
         end

@@ -2,6 +2,7 @@ class BlogsController < ApplicationController
   before_action :authenticate_account!, except: [:show, :news]
   before_action :set_blog, only: %i[ show edit update destroy ]
   before_action :can_access?, except: [:show, :news]
+  before_action :set_sidebar
 
   # GET /blogs or /blogs.json
   def index

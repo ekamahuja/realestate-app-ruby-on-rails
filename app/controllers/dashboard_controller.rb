@@ -5,8 +5,4 @@ class DashboardController < ApplicationController
   def index
   end
 
-  private
-  def set_sidebar
-    @enable_sidebar = true
-  end
 end

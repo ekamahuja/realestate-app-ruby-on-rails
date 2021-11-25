@@ -22,10 +22,6 @@ class ConversationsController < ApplicationController
       params.permit(:sender_id, :recipient_id)
     end
 
-    def set_sidebar
-      @enable_sidebar = true
-    end
-
     def is_sender_recipitent?
       if params[:sender_id] == params[:recipient_id]
         redirect_to profile_path(current_account.id), alert: "You cannot message yourself." and return

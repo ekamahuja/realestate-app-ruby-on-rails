@@ -12,18 +12,12 @@ class ProfileController < ApplicationController
     end
 
     private
-    def set_sidebar
-        @enable_sidebar = true if account_signed_in?
-    end
-
     def is_invalid_profile?
         @account = Account.find(params[:id])
         if @account.nil?
             redirect_to root_path, alert: "Profile not found" and return
         end
     end
-
-
 
   end
   

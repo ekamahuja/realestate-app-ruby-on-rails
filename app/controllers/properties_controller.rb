@@ -2,7 +2,7 @@ class PropertiesController < ApplicationController
   before_action :set_property, only: %i[ show edit update destroy ]
   before_action :authenticate_account!, except: [:show, :email_agent, :view_all]
   before_action :account_owns_property?, only: [:edit, :update, :detroy]
-  before_action :set_sidebar, except: [:show]
+  before_action :set_sidebar
 
   # GET /properties or /properties.json
   def index
@@ -91,10 +91,6 @@ class PropertiesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def property_params
       params.require(:property).permit(:name, :address, :price, :rooms, :bathrooms, :parking_spaces, :description, :for_sale, :photo, :avaliable_date, :status)
-    end
-
-    def set_sidebar
-        @enable_sidebar = true if account_signed_in?
     end
 
     def account_owns_property?

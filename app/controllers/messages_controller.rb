@@ -26,8 +26,5 @@ class MessagesController < ApplicationController
     def message_params
       params.require(:message).permit(:body, :account_id)
     end
-
-    def set_sidebar
-      @enable_sidebar = true
-    end
+    
   end
