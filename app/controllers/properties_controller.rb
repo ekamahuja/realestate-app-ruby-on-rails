@@ -1,6 +1,7 @@
 class PropertiesController < ApplicationController
   before_action :set_property, only: %i[ show edit update destroy ]
   before_action :authenticate_account!, except: [:show, :email_agent]
+  before_action :correct_property, except: [:show, :email_agent]
   before_action :set_sidebar, except: [:show]
 
   # GET /properties or /properties.json
@@ -76,11 +77,9 @@ class PropertiesController < ApplicationController
 
   end
 
-  def correct_account
-    @correct_account = current_account.Property.find_by(account_id: params[:current_account.id])
-    unless @correct_account
-      redirect_to properties_path and return
-    end
+  def correct_property
+    @users_property = Property.where(account_id: current_account.id)
+      redirect_to properties_path, flash: { danger: "This property does not belong to you" } if @users_property.nil? and return
   end
 
   private
