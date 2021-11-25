@@ -1,5 +1,10 @@
 <%= form_with(model: property, local: true) do |form| %>
-  
+
+  <% @property.errors.full_messages.each do |msg| %>
+    <div class="alert alert-danger" role="alert">
+     <%= msg %>
+    </div>
+  <% end %>
 
   <div class="form-group">
     <%= form.label :name %>
