@@ -43,7 +43,7 @@
               <%= f.label :profile_picture, class: "form-label" %>
               <%= f.file_field :profile_picture, accept: 'image/png, image/jpg, image/jpeg', class: "form-control" %>
               <% if @account.profile_picture.present? %>
-                <%= image_tag @account.profile_picture, :class => "mt-4 w-10" %>
+                <%= image_tag @account.profile_picture, :class => "mt-4 w-25" %>
               <% end %>
             </div>
             <div class="mb-3">
