@@ -21,6 +21,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <!-- Toastr StyleSheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet">
   </head>
   <body id="<%= controller.controller_name %>" class="<%= controller.action_name %> <%= "enable-sidebar" if @enable_sidebar.present? %>">
     <!-- Content -->
@@ -45,7 +47,7 @@
     <% end %>
     
       <!-- Notice -->
-      <p id="notifications"><%= notice %></p>
+      <p id="notifications"><%= flash_notifications %></p>
 
     <!-- Footer -->
     <%= render 'layouts/etc/footer/default' %>
