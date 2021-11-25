@@ -1,7 +1,8 @@
 class ProfileController < ApplicationController
+    before_action :is_invalid_profile?
     before_action :set_sidebar
   
-    def index
+    def index   
         @account = Account.find(params[:id])
         @properties = Property.where(account_id: @account.id)
         @properties_for_sale = Property.where(account_id: @account.id).for_sale.count
@@ -13,6 +14,13 @@ class ProfileController < ApplicationController
     private
     def set_sidebar
         @enable_sidebar = true if account_signed_in?
+    end
+
+    def is_invalid_profile?
+        @account = Account.find(params[:id])
+        if @account.nil?
+            redirect_to root_path, alert: "Profile not found" and return
+        end
     end
 
 
