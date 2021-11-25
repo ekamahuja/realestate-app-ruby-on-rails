@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get "admin/accounts", to: "admin#accounts", as: :accounts
   get 'profile/:id', to: 'profile#index', as: :profile
   post 'agent/email', to: "properties#email_agent"
-  
+  get 'properties/view/all', to: "properties#view_all"
   get 'news', to: "blogs#news"
   resources :conversations do
     resources :messages

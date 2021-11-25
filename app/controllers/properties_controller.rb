@@ -1,6 +1,6 @@
 class PropertiesController < ApplicationController
   before_action :set_property, only: %i[ show edit update destroy ]
-  before_action :authenticate_account!, except: [:show, :email_agent]
+  before_action :authenticate_account!, except: [:show, :email_agent, :view_all]
   before_action :account_owns_property?, only: [:edit, :update, :detroy]
   before_action :set_sidebar, except: [:show]
 
@@ -77,6 +77,10 @@ class PropertiesController < ApplicationController
 
   end
 
+  def view_all
+    @latest_properties = Property.latest
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -90,7 +94,7 @@ class PropertiesController < ApplicationController
     end
 
     def set_sidebar
-        @enable_sidebar = true
+        @enable_sidebar = true if account_signed_in?
     end
 
     def account_owns_property?
