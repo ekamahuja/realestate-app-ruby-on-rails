@@ -78,7 +78,7 @@ class PropertiesController < ApplicationController
   end
 
   def view_all
-    @latest_properties = Property.latest
+    @latest_properties = Property.avaliable.latest
   end
 
 

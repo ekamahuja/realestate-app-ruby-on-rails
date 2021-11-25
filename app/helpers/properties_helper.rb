@@ -5,7 +5,7 @@ module PropertiesHelper
     end
 
     def property_photo_url(property)
-        property.photo.present? ? polymorphic_url(property.photo) : asset_url("placeholder_profile.png")
+        property.photo.present? ? polymorphic_url(property.photo) : asset_url("placeholders/placeholder_property_banner.png")
     end
 
     def display_price(price)
@@ -18,4 +18,20 @@ module PropertiesHelper
         repayment = price / 360
         repayment = display_price(repayment)
     end
+
+
+
+    def get_property_price(property_price)
+        "Contact Agent" and return if property_price.nil? 
+        if property_price > 0
+            if @property.for_sale
+                display_price = display_price(property_price)
+            else
+                display_price = "#{display_price(property_price)} / Month"
+            end
+        else 
+            display_price = "Contact Agent"
+        end
+    end
+
 end
