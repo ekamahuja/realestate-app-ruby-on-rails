@@ -10,4 +10,5 @@ class Blog < ApplicationRecord
     validates :summary, length: {maximum: 86}
     validates :title, length: {maximum: 73}
 
+    belongs_to :account
 end
