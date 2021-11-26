@@ -5,7 +5,7 @@ class Account < ApplicationRecord
          :recoverable, :rememberable, :validatable, :trackable, :confirmable
 
   has_many :properties
-  has_many :blogs
+
 
   has_one_attached :profile_picture
   has_one_attached :profile_cover_image
