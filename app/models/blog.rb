@@ -2,6 +2,7 @@ class Blog < ApplicationRecord
 
     #Active Storage Realtionship with blog
     has_one_attached :image
+    belongs_to :account
 
     scope :latest, -> { order created_at: :desc }
     scope :active, -> { where active: true}
